@@ -1,4 +1,3 @@
-
 % rata(nombre,domicilio).
 rata(remy, gusteaus).
 rata(emile, bar).
@@ -47,4 +46,6 @@ cocinaBien(remi, _).
 % 5)
 
 seEspecializaEn(Restaurante, Platillo) :-
-    forall(cocinaBien(Empleado,Platillo), trabajaEn(Restaurante,Empleado)).
+    chef(_, Restaurante),
+    cocina(_,Platillo,_),
+    forall(trabajaEn(Restaurante,Empleado), cocinaBien(Empleado,Platillo)).
